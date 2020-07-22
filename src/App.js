@@ -1,14 +1,19 @@
 import React from "react";
+import { Store } from "./Store";
 import Navbar from "./components/Navbar";
-import SearchBar from "./containers/SearchBar";
+import { Form, SearchBar } from "./containers/SearchBar";
 
-function App() {
+const App = () => {
+  const store = React.useContext(Store);
+
   return (
-    <div className="App">
+    <React.Fragment>
+      {console.log(store)};
       <Navbar />
+      <Form />
       <SearchBar />
-    </div>
+    </React.Fragment>
   );
-}
+};
 
 export default App;

@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { FETCH_RENTALS } from "./types";
 
@@ -18,4 +19,26 @@ export const fetchRentals = (...location) => async (dispatch) => {
   };
   const res = await axios(config);
   dispatch({ type: FETCH_RENTALS, payload: res });
+};
+
+//  action related to fetching rental data
+export const useDataApi = (initialUrl, initialData) => {
+  const [data, setData] = useState(initialData);
+  const [url, setUrl] = useState(initialUrl);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await axios(url);
+
+        setData(result.data);
+      } catch (error) {
+        console.log("oops");
+      }
+    };
+
+    fetchData();
+  }, [url]);
+
+  return [{ data }, setUrl];
 };
