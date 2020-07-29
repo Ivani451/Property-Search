@@ -1,82 +1,65 @@
-import React, { Fragment, useState } from "react";
-import { useDataApi } from "../actions/index";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { fetchRentals } from "../actions";
 
-export const Form = () => {
-  const [query, setQuery] = useState("redux");
-  const [{ data }, doFetch] = useDataApi(
-    "https://hn.algolia.com/api/v1/search?query=redux",
-    {
-      hits: [],
-    }
-  );
+class SearchBar extends Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <Fragment>
-      <form
-        onSubmit={(event) => {
-          doFetch(`http://hn.algolia.com/api/v1/search?query=${query}`);
+    this.state = { term: "" };
 
-          event.preventDefault();
-        }}
-      >
-        <input
-          type="text"
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-        />
-        <button type="submit">Search</button>
-      </form>
+    //  Here we bind 'this' to onInputChange and onFormSubmit to make use of our state's
+    //  information with said functions.
 
-      <ul>
-        {data.hits.map((item) => (
-          <li key={item.objectID}>
-            <a href={item.url}>{item.title}</a>
-          </li>
-        ))}
-      </ul>
-    </Fragment>
-  );
-};
+    this.onInputChange = this.onInputChange.bind(this);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
+  }
 
-// import { fetchRentals } from "../actions";
+  onInputChange(event) {
+    this.setState({ term: event.target.value });
+  }
 
-export const SearchBar = () => {
-  const [location, setLocation] = useState("");
-  const [{ data }, doFetch] = useDataApi(
-    "https://hn.algolia.com/api/v1/search?query=redux",
-    {
-      hits: [],
-    }
-  );
-  console.log({ location });
+  // Prevents the page from refreshing after the "submit" button is clicked
+  onFormSubmit(event) {
+    event.preventDefault();
 
-  return (
-    <Fragment>
-      <form
-        className="searchBar"
-        onSubmit={(e) => {
-          doFetch(`http://hn.algolia.com/api/v1/search?query=${location}`);
-          e.preventDefault();
-        }}
+    this.props.fetchRentals(this.state.term);
+    // after the user submits the form with the designated location, the user is redirected to the custom URL with the
+    // given parameters the user gave
+    console.log(window.location);
+    this.props.history.push("/for_rent");
 
-        // the above "doFetch" and the URL need to be changed to match what we're
-        // trying to do
-      >
-        <input
-          type="text"
-          placeholder="Enter a city"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-        />
-        <input type="submit" value="search" />
-      </form>
-      <ul>
-        {data.hits.map((item) => (
-          <li key={item.objectID}>
-            <a href={item.url}>{item.title}</a>
-          </li>
-        ))}
-      </ul>
-    </Fragment>
-  );
-};
+    // We set state to an empty string to clear the term when the search bar re-renders
+    this.setState({ term: "" });
+  }
+
+  // Our input field is paired with our component's state
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.onFormSubmit} className="searchBar">
+          <input
+            className="search-bar"
+            placeholder="search rentals"
+            value={this.state.term}
+            onChange={this.onInputChange}
+          />
+          <button className="search-button" type="submit">
+            <i className="fa fa-search"></i>
+          </button>
+        </form>
+      </div>
+    );
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchRentals }, dispatch);
+}
+
+/* 
+    Here we connect our action creator "fetchFood" to the search bar so we can
+    use the action creator as a prop for the search bar
+*/
+export default connect(null, mapDispatchToProps)(SearchBar);

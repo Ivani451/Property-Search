@@ -1,15 +1,12 @@
-import React from "react";
+import React, { createContext, useReducer } from "react";
 import { FETCH_RENTALS } from "./actions/types";
 
-export const Store = React.createContext();
-
-const initialState = {
-  rentals: [],
-};
+export const Store = createContext();
 
 function reducer(state, action) {
   switch (action.type) {
     case FETCH_RENTALS:
+      console.log("well");
       return { ...state, rentals: action.payload };
     default:
       return state;
@@ -17,7 +14,9 @@ function reducer(state, action) {
 }
 
 export function StoreProvider(props) {
-  const [state, dispatch] = React.useReducer(reducer, initialState);
-  const value = { state, dispatch };
-  return <Store.Provider value={value}>{props.children}</Store.Provider>;
+  const [state, dispatch] = useReducer(reducer, []);
+
+  return (
+    <Store.Provider value={(state, dispatch)}>{props.children}</Store.Provider>
+  );
 }

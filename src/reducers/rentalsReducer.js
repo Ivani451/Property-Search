@@ -1,10 +1,10 @@
 import { FETCH_RENTALS } from "../actions/types";
 
-const rentalsReducer = (state, action) => {
+export default function (state = [], action) {
   switch (action.type) {
-    case "FETCH_RENTALS":
-      return { ...state };
+    case FETCH_RENTALS:
+      return [action.payload.data];
     default:
-      throw new Error();
+      return state;
   }
-};
+}

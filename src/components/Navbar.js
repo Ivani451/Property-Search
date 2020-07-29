@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 
-const Navbar = () => {
+const NavBar = () => {
   return (
     <nav>
       <h2>this is a header</h2>
@@ -8,9 +8,10 @@ const Navbar = () => {
         <li>Home</li>
         <li>About</li>
         <li>Rent</li>
+        <li>Near Me</li>
       </ul>
     </nav>
   );
 };
 
-export default Navbar;
+export default NavBar;
