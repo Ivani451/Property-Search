@@ -12,7 +12,7 @@ export const fetchRentals = (location) => async (dispatch) => {
       useQueryString: true,
     },
     params: {
-      city: "Austin",
+      city: `${location}`,
       state: "TX",
     },
   };

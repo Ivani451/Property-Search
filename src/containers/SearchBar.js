@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchRentals } from "../actions";
+import { withRouter } from "react-router-dom";
 
 class SearchBar extends Component {
   constructor(props) {
@@ -24,11 +25,7 @@ class SearchBar extends Component {
   onFormSubmit(event) {
     event.preventDefault();
 
-    this.props.fetchRentals(this.state.term);
-    // after the user submits the form with the designated location, the user is redirected to the custom URL with the
-    // given parameters the user gave
-    console.log(window.location);
-    this.props.history.push("/for_rent");
+    this.props.history.push(`/for_rent/${this.state.term}`);
 
     // We set state to an empty string to clear the term when the search bar re-renders
     this.setState({ term: "" });
@@ -62,4 +59,4 @@ function mapDispatchToProps(dispatch) {
     Here we connect our action creator "fetchFood" to the search bar so we can
     use the action creator as a prop for the search bar
 */
-export default connect(null, mapDispatchToProps)(SearchBar);
+export default withRouter(connect(null, mapDispatchToProps)(SearchBar));

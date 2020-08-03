@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import Home from "./Home";
-import RentalsListSearch from "../containers/RentalsListSearch";
+import RentalsList from "../containers/RentalsList";
 import {
   BrowserRouter as Router,
   Route,
@@ -21,9 +21,11 @@ class App extends Component {
             <Route
               exact
               strict
-              path="/for_rent"
-              component={withRouter(RentalsListSearch)}
+              path="/for_rent/:id"
+              component={withRouter(RentalsList)}
             />
+
+            <Route path="/" />
           </Fragment>
         </Switch>
       </Router>
