@@ -15,8 +15,14 @@ class RentalsList extends Component {
 
   render() {
     return (
-      <div>
-        <Rental rentals={this.props.rentals} />
+      <div className="container">
+        <div className="google-map">
+          <h1>hello</h1>
+        </div>
+
+        <div className="rentals-list">
+          <Rental rentals={this.props.rentals} />
+        </div>
       </div>
     );
   }

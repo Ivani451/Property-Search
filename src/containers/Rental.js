@@ -18,7 +18,7 @@ class Rental extends Component {
   render() {
     return (
       <div>
-        <h1>hello</h1>
+        <h1>Rentals</h1>
         {this.props.rentals.map(this.renderRentals, this)}
       </div>
     );

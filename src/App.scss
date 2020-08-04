@@ -1,11 +1,28 @@
 .rental-card {
-  background-color: yellow;
-  margin: 1em;
+  background-color: white;
+  border: 1px black solid;
+  height: 200px;
+  width: 200px;
+  margin: 0.4em;
+  padding: 1em;
 }
 
-.rentals-list {
-  background-color: green;
+.container {
+  min-height: 100vh;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  background-color: blue;
+  justify-content: space-between;
+
+  .google-map {
+    width: 65vw;
+    background-color: white;
+  }
+
+  .rentals-list {
+    background-color: rgb(228, 228, 228);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 35vw;
+  }
 }
