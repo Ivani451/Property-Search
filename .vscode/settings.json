@@ -1,0 +1,8 @@
+{
+  "editor.formatOnSave": true,
+  "emmet.preferences": {},
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "emmet.excludeLanguages": ["markdown"],
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.includeLanguages": { "javascript": "javascriptreact" }
+}

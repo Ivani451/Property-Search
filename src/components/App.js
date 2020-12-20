@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 
 class App extends Component {
-  // the React.Fragment element replaced a div. The div was replalced because you get an error
+  // the React.Fragment element replaced a div. The div was replaced because you get an error
   // if you put a div inside a Switch element
   render() {
     return (

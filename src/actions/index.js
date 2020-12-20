@@ -1,5 +1,7 @@
 import axios from "axios";
+import { REALTY_MOLE_KEY } from '../config.js';
 import { FETCH_RENTALS } from "./types";
+
 
 export const fetchRentals = (location) => async (dispatch) => {
   const config = {
@@ -8,7 +10,7 @@ export const fetchRentals = (location) => async (dispatch) => {
     headers: {
       "content-type": "application/octet-stream",
       "x-rapidapi-host": "realty-mole-property-api.p.rapidapi.com",
-      "x-rapidapi-key": "KhV20lncoSmshTs0jbXgjj2SOXoxp1YQnjpjsnUz0hrHV56mQI",
+      "x-rapidapi-key": REALTY_MOLE_KEY,
       useQueryString: true,
     },
     params: {
