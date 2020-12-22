@@ -1,7 +1,6 @@
 import axios from "axios";
-import { REALTY_MOLE_KEY } from '../config.js';
 import { FETCH_RENTALS } from "./types";
-
+import { REALTY_MOLE_KEY } from "../config";
 
 export const fetchRentals = (location) => async (dispatch) => {
   const config = {

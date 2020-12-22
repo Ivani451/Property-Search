@@ -9,37 +9,6 @@
       name="description"
       content="Web site created using create-react-app"
     />
-    <script>
-      function initMap() {
-        var options = {
-          zoom: 8,
-          center: { lat: 30.2672, lng: -97.7431 },
-        };
-
-        // We create the google maop
-        var map = new google.maps.Map(document.getElementById("map"), options);
-
-        var marker = new google.maps.Marker({
-          position: { lat: 29.4241, lng: -98.4936 },
-          map: map,
-        });
-      }
-    </script>
-
-    <script>
-      function initAutocomplete() {
-        var input = document.getElementById("search-term");
-        var autoComplete = new google.maps.places.Autocomplete(input);
-      }
-    </script>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEWjXDWqg_0VN6bX7L3Y4WKwvBbvDdpZQ&libraries=places&callback=initAutocomplete"
-      defer
-    ></script>
-    <script
-      defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEWjXDWqg_0VN6bX7L3Y4WKwvBbvDdpZQ&callback=initMap"
-    ></script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
