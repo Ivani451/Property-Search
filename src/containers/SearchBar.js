@@ -37,15 +37,12 @@ class SearchBar extends Component {
       <div>
         <form onSubmit={this.onFormSubmit} className="searchBar">
           <input
-            id="search-term"
-            className="search-bar"
-            placeholder="Search for a city"
             value={this.state.term}
             onChange={this.onInputChange}
             type="text"
           />
-          <button className="search-button" type="submit">
-            <i className="fa fa-search"></i>
+          <button type="submit">
+            <i>hello</i>
           </button>
         </form>
       </div>
@@ -62,11 +59,3 @@ function mapDispatchToProps(dispatch) {
     use the action creator as a prop for the search bar
 */
 export default withRouter(connect(null, mapDispatchToProps)(SearchBar));
-
-/*        {
-  <script
-  src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=places&v=weekly"
-  defer
-></script>
-}
-*/

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchRentals } from "../actions";
 import Rental from "./Rental";
+import MyMap from "../containers/GoogleMap";
 
 // These properties are loaded when the user specifies which area to look for properties at
 
@@ -17,7 +18,7 @@ class RentalsList extends Component {
     return (
       <div className="container">
         <div className="google-map">
-          <h1>hello</h1>
+          <MyMap />{" "}
         </div>
 
         <div className="rentals-list">
