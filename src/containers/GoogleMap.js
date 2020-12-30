@@ -18,9 +18,9 @@ export default function MyMap() {
     <div style={{ width: "100vw", height: "100vh" }}>
       <WrappedMap
         googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${MAPS_KEY}`}
-        loadingElement={<div style={{ height: "100%" }} />}
-        containerElement={<div style={{ height: "100%" }} />}
-        mapElement={<div style={{ height: "100%" }} />}
+        loadingElement={<div style={{ height: "100%", width: "100vw" }} />}
+        containerElement={<div style={{ height: "100%", width: "100vw" }} />}
+        mapElement={<div style={{ height: "100%", width: "70vw" }} />}
       />
     </div>
   );

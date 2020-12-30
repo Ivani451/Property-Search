@@ -18,7 +18,7 @@ class RentalsList extends Component {
     return (
       <div className="container">
         <div className="google-map">
-          <MyMap />{" "}
+          <MyMap />
         </div>
 
         <div className="rentals-list">

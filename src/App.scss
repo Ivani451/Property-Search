@@ -1,3 +1,7 @@
+html {
+  background-image: url(pics/house-pic.jpg);
+}
+
 .rental-card {
   background-color: white;
   border: 1px black solid;
@@ -14,7 +18,7 @@
   justify-content: space-between;
 
   .google-map {
-    width: 65vw;
+    width: 70vw;
     background-color: white;
   }
 
@@ -23,6 +27,38 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    width: 35vw;
+    width: 30vw;
+    height: 100vh;
+  }
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .nav-links {
+    display: flex;
+    float: right;
+    padding: 10px;
+
+    li {
+      margin: 0 2em;
+      font-size: 1.05em;
+      font-family: sans-serif;
+      font-weight: 500;
+      list-style: none;
+
+      a {
+        color: black;
+
+        text-decoration: none;
+        transition: all 0.1s ease 0s;
+      }
+
+      a:hover {
+        color: rgb(69, 69, 207);
+      }
+    }
   }
 }
