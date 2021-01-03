@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from "react";
 import Home from "./Home";
+import NavBar from "./Navbar";
+
 import RentalsList from "../containers/RentalsList";
 import {
   BrowserRouter as Router,
@@ -16,8 +18,8 @@ class App extends Component {
       <Router>
         <Switch>
           <Fragment>
+            <NavBar />
             <Route exact strict path="/" component={withRouter(Home)} />
-
             <Route
               exact
               strict

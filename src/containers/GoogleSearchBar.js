@@ -62,16 +62,20 @@ class GoogleSearchBar extends React.Component {
             - suggestions is an array of suggestion objects that contain the data from the Google Maps API and its associated metadata
           */
           <div>
-            <input
-              value={this.state.address}
-              onChange={this.onInputChange}
-              {...getInputProps({
-                placeholder: "Enter a city",
-              })}
-            />
-            <button type="submit">
-              <i>hello</i>
-            </button>
+            <h1>Find your next home.</h1>
+            <form id="search">
+              <input
+                id="search-bar"
+                value={this.state.address}
+                onChange={this.onInputChange}
+                {...getInputProps({
+                  placeholder: "Enter a city",
+                })}
+              />
+              <button id="search-button" type="submit">
+                <i className="fas fa-search" />
+              </button>
+            </form>
 
             <div>
               {loading && <div>Loading...</div>}
