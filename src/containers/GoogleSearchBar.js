@@ -72,12 +72,16 @@ class GoogleSearchBar extends React.Component {
                   placeholder: "Enter a city",
                 })}
               />
-              <button id="search-button" type="submit">
+              <button
+                id="search-button"
+                type="submit"
+                onClick={this.onFormSubmit}
+              >
                 <i className="fas fa-search" />
               </button>
             </form>
 
-            <div>
+            <div id="suggestions-box">
               {loading && <div>Loading...</div>}
               {suggestions.map((suggestion) => {
                 const style = suggestion.active
@@ -86,7 +90,7 @@ class GoogleSearchBar extends React.Component {
 
                 return (
                   <div {...getSuggestionItemProps(suggestion, { style })}>
-                    {suggestion.description}
+                    <span id="cool-yesk">{suggestion.description}</span>
                   </div>
                 );
               })}

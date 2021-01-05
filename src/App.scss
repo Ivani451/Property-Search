@@ -25,15 +25,29 @@ body {
       #search-bar {
         width: 40vw;
         font-family: "Arial";
-        font-size: 1em;
+        font-size: 1.4em;
       }
 
       #search-button {
         width: 10%;
 
         i {
-          color: rgb(49, 49, 253);
+          color: rgb(72, 84, 255);
+          font-size: 2em;
         }
+      }
+
+      #search-button:hover {
+        cursor: pointer;
+      }
+    }
+
+    #suggestions-box {
+      font-size: 1.2em;
+      width: 39vw;
+
+      #cool-yesk {
+        padding-left: 1em;
       }
     }
   }
@@ -55,7 +69,7 @@ body {
       height: 100%;
       width: 100%;
       padding: 0;
-      background-image: url(pics/layer1.png);
+      background-image: url(pics/logo.png);
       background-repeat: no-repeat;
       background-size: contain;
       overflow: hidden;
@@ -84,7 +98,6 @@ body {
 
       a {
         color: black;
-
         text-decoration: none;
         transition: all 0.1s ease 0s;
       }

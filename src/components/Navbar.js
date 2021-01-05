@@ -6,8 +6,8 @@ const NavBar = () => {
       <h2 id="nav-logo">
         Blue<span style={{ color: "black" }}>Brick</span>
       </h2>
-      <div class="outer">
-        <div class="logo"></div>
+      <div className="outer">
+        <div className="logo"></div>
       </div>
       <ul className="nav-links">
         <li>
