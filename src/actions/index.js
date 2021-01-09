@@ -3,10 +3,19 @@ import { FETCH_RENTALS } from "./types";
 import { REALTY_MOLE_KEY } from "../config";
 
 export const fetchRentals = (location) => async (dispatch) => {
-  // the name of the location is modified so that the first letter is uppercase while the remainder of the name is lowercase.
+  // the location provided by the user is modifiend so that there is no spaces and that the city, state, and country are
+  // split inside an array to better work with the individual parts. Example: ["Austin", "TX", "USA"]
+  const splitName = location.replace(/\s/g, "").split(",");
+  console.log(splitName);
+
+  // we set the cityName variable to the name of the city. From the example above, it would be "Austin"
+  const cityName = splitName[0];
+
+  // the name of the city is modified so that the first letter is uppercase while the remainder of the name is lowercase.
   // this is to ensure that the API correctly identifies the location the user is looking for.
   const locationName =
-    location.charAt(0).toUpperCase() + location.slice(1).toLowerCase();
+    cityName.charAt(0).toUpperCase() + cityName.slice(1).toLowerCase();
+  console.log(locationName);
 
   const config = {
     method: "GET",
@@ -19,7 +28,7 @@ export const fetchRentals = (location) => async (dispatch) => {
     },
     params: {
       city: `${locationName}`,
-      state: "TX",
+      state: `${splitName[1]}`,
     },
   };
 

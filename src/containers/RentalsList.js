@@ -9,6 +9,8 @@ import MyMap from "../containers/GoogleMap";
 
 class RentalsList extends Component {
   componentDidMount() {
+    console.log(this.props);
+
     const handle = this.props.match.params.id;
 
     this.props.fetchRentals(handle);

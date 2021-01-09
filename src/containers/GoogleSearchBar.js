@@ -29,10 +29,11 @@ class GoogleSearchBar extends React.Component {
 
   handleSelect = (address) => {
     this.props.history.push(`/for_rent/${this.state.address}`);
+    console.log(address);
 
     geocodeByAddress(address)
       .then((results) => results[0])
-      .then((latLng) => console.log("Success", latLng))
+      .then((latLng) => console.log("Succfdfess", latLng))
       .catch((error) => console.error("Error", error));
   };
 
