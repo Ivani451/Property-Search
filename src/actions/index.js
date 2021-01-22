@@ -6,7 +6,6 @@ export const fetchRentals = (location) => async (dispatch) => {
   // the location provided by the user is modifiend so that there is no spaces and that the city, state, and country are
   // split inside an array to better work with the individual parts. Example: ["Austin", "TX", "USA"]
   const splitName = location.replace(/\s/g, "").split(",");
-  console.log(splitName);
 
   // we set the cityName variable to the name of the city. From the example above, it would be "Austin"
   const cityName = splitName[0];
@@ -15,7 +14,6 @@ export const fetchRentals = (location) => async (dispatch) => {
   // this is to ensure that the API correctly identifies the location the user is looking for.
   const locationName =
     cityName.charAt(0).toUpperCase() + cityName.slice(1).toLowerCase();
-  console.log(locationName);
 
   const config = {
     method: "GET",

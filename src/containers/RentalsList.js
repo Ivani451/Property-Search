@@ -9,14 +9,18 @@ import MyMap from "../containers/GoogleMap";
 
 class RentalsList extends Component {
   componentDidMount() {
-    console.log(this.props);
-
     const handle = this.props.match.params.id;
 
     this.props.fetchRentals(handle);
   }
 
   render() {
+    // the location provided by the user is modifiend so that there is no spaces and that the city, state, and country are
+    // split inside an array to better work with the individual parts. Example: ["Austin", "TX", "USA"]
+    const splittedCityName = this.props.match.params.id
+      .replace(/\s/g, "")
+      .split(",");
+
     return (
       <div className="container">
         <div className="google-map">
@@ -24,6 +28,10 @@ class RentalsList extends Component {
         </div>
 
         <div className="rentals-list">
+          <h1 className="rental-listing-title">
+            {splittedCityName[0]}, {splittedCityName[1]} Rental Listings
+          </h1>
+
           <Rental rentals={this.props.rentals} />
         </div>
       </div>
