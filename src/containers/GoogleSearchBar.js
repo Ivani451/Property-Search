@@ -1,7 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { fetchRentals } from "../actions";
 import { withRouter } from "react-router-dom";
 import PlacesAutocomplete, {
   geocodeByAddress,
@@ -28,8 +25,13 @@ class GoogleSearchBar extends React.Component {
   };
 
   handleSelect = (address) => {
+    // Figure out how to set address to the address that was clicked on the dropdown menu, so far, only the address in the
+    // input bar is set to the state
+    this.setState({ address: this.address }); // this can be simplified ot this.setState({ address }) but not working the way I want it to
+
+    console.log(address, "handleSelect console.log");
+
     this.props.history.push(`/for_rent/${this.state.address}`);
-    console.log(address);
 
     geocodeByAddress(address)
       .then((results) => results[0])
@@ -40,7 +42,6 @@ class GoogleSearchBar extends React.Component {
   // Prevents the page from refreshing after the "submit" button is clicked
   onFormSubmit(event) {
     event.preventDefault();
-
     this.props.history.push(`/for_rent/${this.state.address}`);
 
     // We set state to an empty string to clear the term when the search bar re-renders
@@ -103,12 +104,4 @@ class GoogleSearchBar extends React.Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchRentals }, dispatch);
-}
-
-/* 
-    Here we connect our action creator "fetchFood" to the search bar so we can
-    use the action creator as a prop for the search bar
-*/
-export default withRouter(connect(null, mapDispatchToProps)(GoogleSearchBar));
+export default withRouter(GoogleSearchBar);

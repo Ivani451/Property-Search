@@ -23,7 +23,7 @@ class App extends Component {
             <Route
               exact
               strict
-              path="/for_rent/:id"
+              path="/for_rent/:city_name"
               component={withRouter(RentalsList)}
             />
 
